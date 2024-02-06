@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasileiro ou estrangeiro</title>
+</head>
+<body>
+    <h1></h1>
+    <p>
+        <label for="ipais">Qual o seus pais?</label>
+        <input type="text" name="ipais" id="ipais">
+    </p>
+        <input type="submit" value="Verificar" onclick="verificar()">
+
+        <div id="respais">
+
+        </div>
+
+        <script>
+    function verificar() {
+    var inputpais = window.document.querySelector('input#ipais').value;
+    var res = window.document.querySelector('div#respais');
+
+    if (inputpais === 'Brasil') {
+        res.innerHTML = 'Você é Brasileiro(a)';
+    } else {
+        res.innerHTML = 'Você é estrangeiro(a)';
+    }
+}
+
+
+        </script>
+</body>
+</html>
