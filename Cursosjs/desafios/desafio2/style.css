@@ -1,0 +1,38 @@
+@charset "utf-8"; /*John Chk*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(97, 97, 172);
+    height: 100%;
+    width: 100%;
+}
+
+header{
+        text-align: center;
+        color: white;
+        padding: 20px 0px;
+}
+
+section{
+    margin: auto;
+    padding: 20px;
+    max-width: 80%;
+    height: 500px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+section p{
+    padding: 5px 0px;
+}
+
+/**/
+footer a{
+    color: rgba(0, 0, 0, 0.801);
+    font-style: italic;
+}
