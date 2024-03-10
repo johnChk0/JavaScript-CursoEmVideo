@@ -1,0 +1,108 @@
+<!DOCTYPE html> <!--by JohnChk-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="analisador.css">
+    <script src="analisador.js"></script>
+    <title>Analisador de numeros</title>
+</head>
+<body>
+    <header>
+        <h1>Analisador de numeros</h1>
+    </header>
+    <main>
+        <div id="analis-contain">
+            <fieldset>
+                <label for="iAddNum">Número (entre 1 e 100):</label>
+                <input type="text" name="nAddNum" id="iAddNum">
+                <button type="submit" onclick="adicionar()">Adicionar</button>
+            </fieldset>
+
+            <div id="res-contain">
+                <label for="selectAdd">Veja o resultado abaixo</label>
+                <select name="selectAdd" id="selectAdd" size="10">
+                </select>
+                <button onclick="resultado()">Confirm</button>
+                <button onclick="limpar()">Limpar</button>
+            <div id="res">
+
+            </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy;CursoemVideo</p>
+    </footer>
+    
+    <script>
+        const inputAdd = document.getElementById('iAddNum');
+        let tab = document.getElementById('selectAdd');
+        let num = 0;
+        let array = [];
+        let soma = 0
+        let result = document.getElementById('res');
+
+
+        function limpar(){
+            tab.innerHTML = ``
+            res.innerHTML = ``
+            array.length = 0
+            inputAdd.value =``
+        }
+
+        function adicionar(){
+            res.innerHTML = ""
+            num = parseInt(inputAdd.value)
+            inputAdd.focus()
+            inputAdd.value =``
+            if( inputAdd.value === undefined ){
+                alert("ERROR")
+            }else {
+                if(num > 1 && num < 100){
+                    if(array.indexOf(num) !== -1){
+                        alert('Voce ja colocu este valor')
+                    }else{
+                        array.push(num)
+                        atualizarSelect();
+                    }
+                }else{
+                    alert("Adicione um nuumero de 1 a 100")
+                }
+            }
+        }   
+
+        function atualizarSelect(){
+            tab.innerHTML = ``
+            for(let i = 0; i < array.length; i++){
+                let item = document.createElement('option')
+                item.text = `O valor ${array[i]} foi adicionado!`
+                tab.appendChild(item)
+            }
+         }
+
+         
+        function resultado(){
+
+            if(array.length === 0){
+                alert('Adicione valores')
+            }
+
+            else{
+                for(i= 0; i< array.length; i++){
+                    soma += array[i]
+                }
+
+                let media = soma/array.length
+
+                res.innerHTML = `Ao todo temos ${array.length} numeros cadastrados <br>`
+                res.innerHTML += `O maior numero informado foi ${Math.max(...array)} <br>`
+                res.innerHTML += `O menor valor informado foi ${Math.min(...array)} <br>`
+                res.innerHTML += `Somando todos os valores, temos ${soma} <br>`
+                res.innerHTML += `A média dos valores digitados e ${media} <br>`
+            }
+        }
+        
+    </script>
+</body>
+</html>
